@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy'){
             steps{
                 sh'./jenkins/scripts/deliver.sh'
-                input massage:'Jika sudah berhasil menjalankan klik "Procced" untuk mengakhiri'
+                input massage: 'Jika sudah berhasil menjalankan klik ("Procced") untuk mengakhiri'
                 sh'./jenkins/scripts/kill.sh'
             }
         }  
