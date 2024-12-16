@@ -16,6 +16,13 @@ pipeline {
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh './jenkins/scripts/test.sh' 
             }
-        }    
+        }  
+        stage('Deploy'){
+            steps{
+                sh'./jenkins/scripts/deliver.sh'
+                input massage:'Jika sudah berhasil menjalankan klik "Procced" untuk mengakhiri'
+                sh'./jenkins/scripts/kill.sh'
+            }
+        }  
     }
 }
